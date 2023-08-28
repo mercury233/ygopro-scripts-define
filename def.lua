@@ -17,6 +17,29 @@ Debug = {}
 
 -----
 
+---@return boolean
+---@param e Effect
+---@param eg Group
+---@param re Effect
+function sample_condition(e,tp,eg,ep,ev,re,r,rp) end
+
+---@return boolean|nil
+---@param e Effect
+---@param eg Group
+---@param re Effect
+function sample_cost(e,tp,eg,ep,ev,re,r,rp,chk) end
+
+---@return boolean|nil
+---@param e Effect
+---@param eg Group
+---@param re Effect
+function sample_target(e,tp,eg,ep,ev,re,r,rp,chk,chkc) end
+
+---@param e Effect
+---@param eg Group
+---@param re Effect
+function sample_operation(e,tp,eg,ep,ev,re,r,rp) end
+
 ---返回c的当前卡号（可能因为效果改变）
 ---@return integer
 ---@return integer|nil
