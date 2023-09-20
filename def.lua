@@ -1738,44 +1738,54 @@ function Duel.GetFlagEffectLabel(player,code) end
 ---以reason原因破坏targets去dest，返回值是实际被破坏的数量
 ---如果reason包含REASON_RULE，则破坏事件将不会检查卡片是否免疫效果，
 ---不会触发代破效果并且无视“不能破坏”
+---如果设置reason_player，则视为被玩家reason_player移动
 ---@return integer
 ---@param targets Card|Group
 ---@param reason integer
 ---@param dest? integer
-function Duel.Destroy(targets,reason,dest) end
+---@param reason_player? integer
+function Duel.Destroy(targets,reason,dest,reason_player) end
 
 ---以reason原因，pos表示形式除外targets，返回值是实际被操作的数量
 ---如果reason包含REASON_TEMPORARY，那么视为是暂时除外，可以通过Duel.ReturnToField返回到场上
+---如果设置reason_player，则视为被玩家reason_player移动
 ---@return integer
 ---@param targets Card|Group
 ---@param pos integer
 ---@param reason integer
-function Duel.Remove(targets,pos,reason) end
+---@param reason_player? integer
+function Duel.Remove(targets,pos,reason,reason_player) end
 
 ---以reason原因把targets送去墓地，返回值是实际被操作的数量
+---如果设置reason_player，则视为被玩家reason_player移动
 ---@return integer
 ---@param targets Card|Group
 ---@param reason integer
-function Duel.SendtoGrave(targets,reason) end
+---@param reason_player? integer
+function Duel.SendtoGrave(targets,reason,reason_player) end
 
 ---以reason原因把targets送去玩家player的手卡，返回值是实际被操作的数量
 ---如果player是nil则返回卡的持有者的手卡
+---如果设置reason_player，则视为被玩家reason_player移动
 ---@return integer
 ---@param targets Card|Group
 ---@param player integer|nil
 ---@param reason integer
-function Duel.SendtoHand(targets,player,reason) end
+---@param reason_player? integer
+function Duel.SendtoHand(targets,player,reason,reason_player) end
 
 ---以reason原因把targets送去玩家player的卡组，返回值是实际被操作的数量
 ---如果player是nil则返回卡的持有者的卡组
 ---如果seq=0，则是返回卡组最顶端；seq=1则是返回卡组最底端；
 ---其余情况则是返回最顶端并且标记需要洗卡组
+---如果设置reason_player，则视为被玩家reason_player移动
 ---@return integer
 ---@param targets Card|Group
 ---@param player integer|nil
 ---@param seq integer
 ---@param reason integer
-function Duel.SendtoDeck(targets,player,seq,reason) end
+---@param reason_player? integer
+function Duel.SendtoDeck(targets,player,seq,reason,reason_player) end
 
 ---以reason原因把灵摆卡targets表侧表示送去玩家player的额外卡组，返回值是实际被操作的数量
 ---如果player是nil则返回卡的持有者的额外卡组
@@ -1953,10 +1963,12 @@ function Duel.ChangePosition(targets,au,ad,du,dd,noflip,setavailable) end
 
 ---以reason原因解放targets ，返回值是实际解放的数量
 ---如果reason含有REASON_COST，则不会检查卡片是否不受效果影响
+---如果设置reason_player，则视为被玩家reason_player移动
 ---@return integer
 ---@param targets Card|Group
 ---@param reason integer
-function Duel.Release(targets,reason) end
+---@param reason_player? integer
+function Duel.Release(targets,reason,reason_player) end
 
 ---让玩家move_player把c移动的target_player的场上，返回值表示是否成功
 ---dest只能是LOCATION_MZONE或者LOCATION_SZONE，pos表示可选表示形式， enable 表示是否立刻适用c的效果
