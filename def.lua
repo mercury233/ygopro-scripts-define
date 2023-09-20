@@ -3039,7 +3039,8 @@ function Duel.AnnounceNumber(player,number,...) end
 ---@param player integer
 function Duel.AnnounceCoin(player) end
 
----让玩家player投count(<=5)次硬币，返回值为count个结果，0或者1, 正面是 1，反面是0
+---让玩家player投count(<=20)次硬币，返回值为count个结果，0或者1, 正面是 1，反面是0
+---若count=-1，投硬币直到出現反面，返回值為投擲次數
 ---@return ...
 ---@param player integer
 ---@param count integer
