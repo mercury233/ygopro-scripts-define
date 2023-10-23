@@ -19,25 +19,60 @@ Debug = {}
 
 ---@return boolean
 ---@param e Effect
+---@param tp integer
 ---@param eg Group
+---@param ep integer
+---@param ev integer
 ---@param re Effect
+---@param r integer
+---@param rp integer
 function sample_condition(e,tp,eg,ep,ev,re,r,rp) end
 
 ---@return boolean|nil
 ---@param e Effect
+---@param tp integer
 ---@param eg Group
+---@param ep integer
+---@param ev integer
 ---@param re Effect
+---@param r integer
+---@param rp integer
+---@param chk integer
 function sample_cost(e,tp,eg,ep,ev,re,r,rp,chk) end
 
 ---@return boolean|nil
 ---@param e Effect
+---@param tp integer
 ---@param eg Group
+---@param ep integer
+---@param ev integer
 ---@param re Effect
-function sample_target(e,tp,eg,ep,ev,re,r,rp,chk,chkc) end
+---@param r integer
+---@param rp integer
+---@param chk integer
+---@param chkc Card
+function sample_target1(e,tp,eg,ep,ev,re,r,rp,chk,chkc) end
+
+---@return boolean|nil
+---@param e Effect
+---@param tp integer
+---@param eg Group
+---@param ep integer
+---@param ev integer
+---@param re Effect
+---@param r integer
+---@param rp integer
+---@param chk integer
+function sample_target2(e,tp,eg,ep,ev,re,r,rp,chk) end
 
 ---@param e Effect
+---@param tp integer
 ---@param eg Group
+---@param ep integer
+---@param ev integer
 ---@param re Effect
+---@param r integer
+---@param rp integer
 function sample_operation(e,tp,eg,ep,ev,re,r,rp) end
 
 ---返回c的当前卡号（可能因为效果改变）
