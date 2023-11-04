@@ -763,7 +763,8 @@ function Card.CheckEquipTarget(c1,c2) end
 ---@param ec Card
 function Card.CheckUnionTarget(c,ec) end
 
----返回c当前装备的同盟卡数量
+---返回c当前装备的同盟卡数量、旧同盟卡数量
+---@return integer
 ---@return integer
 ---@param c Card
 function Card.GetUnionCount(c) end
