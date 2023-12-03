@@ -3516,12 +3516,13 @@ function Effect.GetActiveType(e) end
 ---@param type integer
 function Effect.IsActiveType(e,type) end
 
----返回OwnerPlayer属性，一般是Owner的控制者
+---返回OwnerPlayer属性（发动效果、建立效果的玩家）
+---若無OwnerPlayer属性，则是Owner的控制者
 ---@return integer
 ---@param e Effect
 function Effect.GetOwnerPlayer(e) end
 
----返回当前者，一般是Handle的控制者
+---返回当前玩家，一般是Handler的控制者
 ---@return integer
 ---@param e Effect
 function Effect.GetHandlerPlayer(e) end
