@@ -984,14 +984,14 @@ function Card.GetFlagEffect(c,code) end
 ---@param code integer
 function Card.ResetFlagEffect(c,code) end
 
----返回c是否存在种类为code的标识效果，并设置其Label属性为label
+---返回c是否存在种类为code的标识效果，若有则设置第一个的Label属性为label
 ---@return boolean
 ---@param c Card
 ---@param code integer
 ---@param label integer
 function Card.SetFlagEffectLabel(c,code,label) end
 
----返回c的种类为code的标识效果的Label(数量可能不止一个)，没有此效果则返回nil
+---返回c的种类为code的每个标识效果的Label，没有此效果则返回nil
 ---@return integer
 ---@return ...? integer
 ---@param c Card
@@ -1723,15 +1723,16 @@ function Duel.GetFlagEffect(player,code) end
 ---@param code integer
 function Duel.ResetFlagEffect(player,code) end
 
----返回player是否存在种类为code的标识效果，并设置其Label属性为label
+---返回player是否存在种类为code的标识效果，若有则设置第一个的Label属性为label
 ---@return boolean
 ---@param player integer
 ---@param code integer
 ---@param label integer
 function Duel.SetFlagEffectLabel(player,code,label) end
 
----返回玩家player的种类为code的标识效果的Label，没有此效果则返回nil
+---返回玩家player的种类为code的每个标识效果的Label，没有此效果则返回nil
 ---@return integer
+---@return ...? integer
 ---@param player integer
 ---@param code integer
 function Duel.GetFlagEffectLabel(player,code) end
