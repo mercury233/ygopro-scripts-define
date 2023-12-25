@@ -1245,10 +1245,11 @@ function Card.IsAbleToGraveAsCost(c) end
 ---@param c Card
 function Card.IsAbleToRemoveAsCost(c) end
 
----检查c是否可以被解放（非上级召唤用）
+---检查c是否可以被以原因reason解放（非上级召唤用）
 ---@return boolean
 ---@param c Card
-function Card.IsReleasable(c) end
+---@param reason? integer default: REASON_COST
+function Card.IsReleasable(c,reason) end
 
 ---检查c是否可以被效果解放
 ---@return boolean
@@ -2572,59 +2573,65 @@ function Duel.IsExistingMatchingCard(f,player,s,o,count,ex,...) end
 ---@param ... any
 function Duel.SelectMatchingCard(sel_player,f,player,s,o,min,max,ex,...) end
 
----返回玩家player可解放（非上级召唤用）的卡片组， use_hand=true 则包括手卡
+---返回玩家player能以原因reason解放（非上级召唤用）的卡片组， use_hand=true 则包括手卡
 ---@return Group
 ---@param player integer
 ---@param use_hand? boolean default: false
-function Duel.GetReleaseGroup(player,use_hand) end
+---@param reason? integer default: REASON_COST
+function Duel.GetReleaseGroup(player,use_hand,reason) end
 
----返回玩家player可解放（非上级召唤用）的卡片数量， use_hand=true 则包括手卡
+---返回玩家player能以原因reason解放（非上级召唤用）的卡片数量， use_hand=true 则包括手卡
 ---@return integer
 ---@param player integer
 ---@param use_hand? boolean default: false
-function Duel.GetReleaseGroupCount(player,use_hand) end
+---@param reason? integer default: REASON_COST
+function Duel.GetReleaseGroupCount(player,use_hand,reason) end
 
----检查玩家player场上是否存在至少count张满足过滤条件f并且不等于ex的可解放的卡（非上级召唤用）
+---检查玩家player场上是否存在至少count张满足过滤条件f并且不等于ex的能以原因reason解放的卡（非上级召唤用）
 ---第5个参数开始为额外参数
 ---@return boolean
+---@param reason integer
 ---@param player integer
 ---@param f function|nil
 ---@param count integer
 ---@param ex Card|Group|nil
 ---@param ... any
-function Duel.CheckReleaseGroup(player,f,count,ex,...) end
+function Duel.CheckReleaseGroup(reason,player,f,count,ex,...) end
 
----过滤函数，让玩家sel_player从场上选择min-max张不等于ex的满足条件f的可解放的卡（非上级召唤用）
+---过滤函数，让玩家sel_player从场上选择min-max张不等于ex的满足条件f的能以原因reason解放的卡（非上级召唤用）
 ---第6个参数开始为额外参数
 ---@return Group
+---@param reason integer
 ---@param sel_player integer
 ---@param f function|nil
 ---@param min integer
 ---@param max integer
 ---@param ex Card|Group|nil
 ---@param ... any
-function Duel.SelectReleaseGroup(sel_player,f,min,max,ex,...) end
+function Duel.SelectReleaseGroup(reason,sel_player,f,min,max,ex,...) end
 
----检查玩家player场上·手卡是否存在至少count张满足过滤条件f并且不等于ex的可解放的卡（非上级召唤用）
+---检查玩家player场上·手卡是否存在至少count张满足过滤条件f并且不等于ex的能以原因reason解放的卡（非上级召唤用）
 ---第5个参数开始为额外参数
 ---@return boolean
+---@param reason integer
 ---@param player integer
 ---@param f function|nil
 ---@param count integer
 ---@param ex Card|Group|nil
 ---@param ... any
-function Duel.CheckReleaseGroupEx(player,f,count,ex,...) end
+function Duel.CheckReleaseGroupEx(reason,player,f,count,ex,...) end
 
----过滤函数，让玩家player从场上·手卡选择min-max张满足过滤条件f并且不等于ex的可解放的卡（非上级召唤用）
+---过滤函数，让玩家player从场上·手卡选择min-max张满足过滤条件f并且不等于ex的能以原因reason解放的卡（非上级召唤用）
 ---第6个参数开始为额外参数
 ---@return Group
+---@param reason integer
 ---@param player integer
 ---@param f function|nil
 ---@param min integer
 ---@param max integer
 ---@param ex Card|Group|nil
 ---@param ... any
-function Duel.SelectReleaseGroupEx(player,f,min,max,ex,...) end
+function Duel.SelectReleaseGroupEx(reason,player,f,min,max,ex,...) end
 
 ---返回场上用于通常召唤c可解放（上级召唤用）的卡片组
 ---@return Group
@@ -3193,11 +3200,12 @@ function Duel.IsPlayerCanSpecialSummonMonster(player,code,setcode,type,atk,def,l
 ---@param count integer
 function Duel.IsPlayerCanSpecialSummonCount(player,count) end
 
----检查玩家player是否能解放c
+---检查玩家player是否能解放[以原因reason解放c]
 ---@return boolean
 ---@param player integer
 ---@param c? Card
-function Duel.IsPlayerCanRelease(player,c) end
+---@param reason? integer default: REASON_COST
+function Duel.IsPlayerCanRelease(player,c,reason) end
 
 ---检查玩家player是否能除外c
 ---@return boolean
