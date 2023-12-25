@@ -475,6 +475,28 @@ function Card.GetSequence(c) end
 ---@param c Card
 function Card.GetPreviousSequence(c) end
 
+---检查c是否被卡名含有setname的卡特殊召唤
+---@return boolean
+---@param c Card
+---@param ... integer
+function Card.IsSpecialSummonSetCard(c,...) end
+
+---返回c的特殊召唤的信息
+---SUMMON_INFO_CODE
+---SUMMON_INFO_CODE2
+---SUMMON_INFO_TYPE
+---SUMMON_INFO_LEVEL
+---SUMMON_INFO_RANK
+---SUMMON_INFO_ATTRIBUTE
+---SUMMON_INFO_RACE
+---SUMMON_INFO_ATTACK
+---SUMMON_INFO_DEFENSE
+---SUMMON_INFO_REASON_EFFET
+---@return ...
+---@param c Card
+---@param ... integer
+function Card.GetSpecialSummonInfo(c,...) end
+
 ---返回c的召唤/特殊召唤的方式
 ---@return integer
 ---@param c Card
