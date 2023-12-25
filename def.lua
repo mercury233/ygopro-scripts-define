@@ -2378,9 +2378,13 @@ function Duel.GetFieldCard(player,location,seq) end
 ---@param seq integer
 function Duel.CheckLocation(player,location,seq) end
 
----返回当前正在处理的连锁序号
+---返回当前的连锁个数（即正在处理的连锁序号）
 ---@return integer
 function Duel.GetCurrentChain() end
+
+---返回当前已执行Target函数的连锁个数
+---@return integer
+function Duel.GetReadyChain() end
 
 ---返回连锁chainc的信息，如果chainc=0，则返回当前正在处理的连锁的信息
 ---此函数根据传入的参数个数按顺序返回相应数量的返回值参数可以是:
