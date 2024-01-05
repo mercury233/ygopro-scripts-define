@@ -2828,10 +2828,11 @@ function Duel.GetRitualMaterialEx(player) end
 function Duel.ReleaseRitualMaterial(g) end
 
 ---返回玩家player可用的用于融合召唤素材的卡片组
----包含手卡·场上的怪兽的以及受 EFFECT_EXTRA_FUSION_MATERIAL 影响的卡
----@return Group
+---@return Group material_all 包含受EFFECT_EXTRA_FUSION_MATERIAL影响的卡
+---@return Group material_base 只取那些区域的卡
 ---@param player integer
-function Duel.GetFusionMaterial(player) end
+---@param location? integer default: LOCATION_HAND + LOCATION_MZONE
+function Duel.GetFusionMaterial(player,location) end
 
 ---返回当前进行特殊召唤的行为是否可以回滚并撤销。
 ---@return boolean
