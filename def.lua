@@ -17,6 +17,12 @@ Debug = {}
 
 -----
 
+---
+---@return boolean
+---@param c Card
+---@param tp integer
+function Card.mat_filter(c,tp) end
+
 ---返回c的当前卡号（可能因为效果改变）
 ---@return integer
 ---@return integer|nil
