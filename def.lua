@@ -3629,6 +3629,12 @@ function Effect.CheckCountLimit(e,p) end
 ---@param oath_only? boolean default: false
 function Effect.UseCountLimit(e,p,count,oath_only) end
 
+---@class Group
+---@operator add(Group|Card): Group
+
+---@class Group
+---@operator sub(Group|Card): Group
+
 ---新建一个空的卡片组
 ---@return Group
 function Group.CreateGroup() end
