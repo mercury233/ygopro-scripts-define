@@ -1810,13 +1810,15 @@ function Duel.SendtoHand(targets,player,reason,reason_player) end
 ---如果seq=0，则是返回卡组最顶端；seq=1则是返回卡组最底端；
 ---其余情况则是返回最顶端并且标记需要洗卡组
 ---如果设置reason_player，则视为被玩家reason_player移动
+---如果设置send_activating，则可以移动发动中的魔法陷阱卡
 ---@return integer
 ---@param targets Card|Group
 ---@param player integer|nil
 ---@param seq integer
 ---@param reason integer
 ---@param reason_player? integer
-function Duel.SendtoDeck(targets,player,seq,reason,reason_player) end
+---@param send_activating? boolean
+function Duel.SendtoDeck(targets,player,seq,reason,reason_player,send_activating) end
 
 ---以reason原因把灵摆卡targets表侧表示送去玩家player的额外卡组，返回值是实际被操作的数量
 ---如果player是nil则返回卡的持有者的额外卡组
