@@ -2049,7 +2049,7 @@ function Duel.SetChainLimit(f) end
 function Duel.SetChainLimitTillChainEnd(f) end
 
 ---返回玩家player受到的连锁素材的效果，此函数仅用于融合类卡的效果
----@return Effect
+---@return Effect|nil
 ---@param player integer
 function Duel.GetChainMaterial(player) end
 
