@@ -1710,6 +1710,11 @@ function Duel.GetLP(player) end
 ---@param lp integer
 function Duel.SetLP(player,lp) end
 
+---返回当前的回合玩家是否为playerid
+---@return boolean
+---@param playerid integer
+function Duel.IsTurnPlayer(playerid) end
+
 ---返回当前的回合玩家
 ---@return integer
 function Duel.GetTurnPlayer() end
@@ -3267,6 +3272,10 @@ function Duel.IsPlayerCanSendtoDeck(player,c) end
 ---@param player integer
 function Duel.IsPlayerCanAdditionalSummon(player) end
 
+---检查当前是处于连锁处理中，还是不入连锁的效果处理中
+---@return boolean
+function Duel.IsChainSolving() end
+
 ---检查连锁chainc的发动能否被无效
 ---@return boolean
 ---@param chainc integer
@@ -3760,6 +3769,15 @@ function Group.SelectUnselect(cg,sg,player,btok,cancelable,minc,maxc) end
 ---@param player integer
 ---@param count integer
 function Group.RandomSelect(g,player,count) end
+
+---让玩家player从g中选择min-max张不等于ex的卡，可以取消并返回nil
+---@return Group
+---@param g Group
+---@param player integer
+---@param min integer
+---@param max integer
+---@param ex Card|Group|nil
+function Group.CancelableSelect(g,player,min,max,ex) end
 
 ---过滤函数，检查g中是否存在至少count张满足筛选条件f并且不等于ex的卡
 ---从第5个参数开始为额外参数
