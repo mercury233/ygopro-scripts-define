@@ -2083,12 +2083,12 @@ function Duel.SortDecktop(sort_player,target_player,count) end
 ---检查当前是否是event时点
 ---若get_info=true并且是正确的时点，则还返回触发时点的信息 eg,ep,ev,re,r,rp
 ---@return boolean
----@return Group|nil
----@return integer|nil
----@return integer|nil
----@return Effect|nil
----@return integer|nil
----@return integer|nil
+---@return Group 可能为空
+---@return integer 可能为空
+---@return integer 可能为空 
+---@return Effect 可能为空
+---@return integer 可能为空
+---@return integer 可能为空
 ---@param event integer
 ---@param get_info? boolean
 function Duel.CheckEvent(event,get_info) end
@@ -2493,8 +2493,8 @@ function Duel.GetAttacker() end
 function Duel.GetAttackTarget() end
 
 ---返回由player操控的正处于战斗中的怪兽。如果没有战斗或没有目标则会返回nil。
----@return Card|nil
----@return Card|nil
+---@return Card
+---@return Card
 ---@param player integer
 function Duel.GetBattleMonster(player) end
 
@@ -2754,7 +2754,7 @@ function Duel.CheckMustMaterial(player,cards,ecode) end
 ---@return Group
 ---@param player integer
 ---@param c Card
----@param g Group
+---@param g Group|nil 不能为空
 ---@param gc? Card|nil
 ---@param chkf? integer default: PLAYER_NONE
 ---@param not_material? boolean default: false
@@ -2900,10 +2900,10 @@ function Duel.SetOperationInfo(chainc,category,targets,count,target_player,targe
 ---第一个返回值是false的话表示不存在该分类
 ---后4个返回值对应Duel.SetOperationInfo的后4个参数：Card|Group targets, int count, int target_player, int target_param
 ---@return boolean
----@return Group|nil
----@return integer|nil
----@return integer|nil
----@return integer|nil
+---@return Group 可能为空
+---@return integer 可能为空
+---@return integer 可能为空
+---@return integer 可能为空
 ---@param chainc integer
 ---@param category integer
 function Duel.GetOperationInfo(chainc,category) end
