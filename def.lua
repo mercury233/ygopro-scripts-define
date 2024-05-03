@@ -402,6 +402,11 @@ function Card.GetPreviousAttackOnField(c) end
 ---@param c Card
 function Card.GetPreviousDefenseOnField(c) end
 
+---返回c位置变化之前在场上叠放的卡片数量
+---@return integer
+---@param c Card
+function Card.GetPreviousOverlayCountOnField(c) end
+
 ---返回c的持有者
 ---@return integer
 ---@param c Card
