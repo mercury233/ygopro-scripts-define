@@ -2472,6 +2472,19 @@ function Duel.GetFirstTarget() end
 ---@return Group
 function Duel.GetTargetsRelateToChain() end
 
+---返回当前的阶段是否为phase
+---@param phase integer
+---@return boolean
+function Duel.IsPhase(phase) end
+
+---返回当前的阶段是否为主要阶段
+---@return boolean
+function Duel.IsMainPhase() end
+
+---返回当前的阶段是否为战斗阶段
+---@return boolean
+function Duel.IsBattlePhase() end
+
 ---返回当前的阶段
 ---@return integer
 function Duel.GetCurrentPhase() end
@@ -2991,6 +3004,11 @@ function Duel.RemoveOverlayCard(player,s,o,min,max,reason) end
 ---@param player integer
 ---@param desc integer
 function Duel.Hint(hint_type,player,desc) end
+
+---返回上次给玩家player发送的HINT_SELECTMSG类型的提示内容
+---@param player integer
+---@return integer
+function Duel.GetLastSelectHint(player) end
 
 ---手动为g显示被选为对象的动画效果
 ---@param g Group
