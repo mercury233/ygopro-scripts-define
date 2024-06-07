@@ -17,11 +17,60 @@ Debug = {}
 
 -----
 
----
+---仪式怪兽的解放过滤条件
 ---@return boolean
 ---@param c Card
 ---@param tp integer
 function Card.mat_filter(c,tp) end
+
+---素材检查（烙印融合）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.branded_fusion_check(tp,sg,fc) end
+
+---素材检查（电子负载融合）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.cyber_fusion_check(tp,sg,fc) end
+
+---素材检查（破坏剑士融合）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.destruction_swordsman_fusion_check(tp,sg,fc) end
+
+---素材检查（至爱接触）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.hero_fusion_check(tp,sg,fc) end
+
+---素材检查（真红眼融合）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.red_eyes_fusion_check(tp,sg,fc) end
+
+---素材检查（奇迹同调融合）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.synchro_fusion_check(tp,sg,fc) end
+
+---素材检查（究极融合）
+---@param tp integer
+---@param sg Group
+---@param fc Card
+function Card.ultimate_fusion_check(tp,sg,fc) end
+
+---当作装备卡装备（异热同心武器）
+---@param c Card
+---@param tp integer
+---@param tc Card
+function Card.zw_equip_monster(c,tp,tc) end
+
 
 ---返回c的当前卡号（可能因为效果改变）
 ---@return integer
