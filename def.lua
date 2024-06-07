@@ -1,6 +1,8 @@
 ---@meta
 
 ---@class Card
+---@field discard_effect Effect
+---@field star_knight_summon_effect Effect
 Card = {}
 
 ---@class Duel
