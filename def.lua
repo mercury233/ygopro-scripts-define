@@ -617,11 +617,16 @@ function Card.IsOriginalCodeRule(c,code) end
 ---@param ...? integer
 function Card.IsCode(c,code1,code2,...) end
 
----检查c是否属于类型type
+---检查c是否包含type之中任何类型
 ---@return boolean
 ---@param c Card
 ---@param type integer
 function Card.IsType(c,type) end
+
+---检查c是否包含type之中全部类型
+---@param c any
+---@param type any
+function Card.IsAllTypes(c,type) end
 
 ---检查c用作融合素材时是否属于类型type（与IsType的区别在于对于魔陷区的怪兽卡，用其原本类型作判断）
 ---@return boolean
@@ -732,11 +737,17 @@ function Card.IsNonAttribute(c,attribute) end
 ---@param c Card
 function Card.IsExtraDeckMonster(c) end
 
----检查c是否包含原因reason
+---检查c是否包含reason之中任何原因
 ---@return boolean
 ---@param c Card
 ---@param reason integer
 function Card.IsReason(c,reason) end
+
+---检查c是否包含reason之中全部原因
+---@return boolean
+---@param c Card
+---@param reason integer
+function Card.IsAllReasons(c,reason) end
 
 ---检查c的召唤类型是否是sumtype
 ---@return boolean
@@ -1490,6 +1501,16 @@ function Card.IsDefenseBelow(c,def) end
 ---@param c Card
 ---@param def integer
 function Card.IsDefenseAbove(c,def) end
+
+---检查c是否持有等级
+---@return boolean
+---@param c Card
+function Card.IsHasLevel(c) end
+
+---检查c是否持有守备力
+---@return boolean
+---@param c Card
+function Card.IsHasDefense(c) end
 
 ---检查c是否处于公开状态
 ---@return boolean
