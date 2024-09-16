@@ -2320,7 +2320,7 @@ function Duel.DisableSelfDestroyCheck(enabled) end
 
 ---启用选择卡组时显示真实序号
 ---@param enabled? boolean default: true
-function Duel.PreserveSelectDeckSequence(enabled) end
+function Duel.RevealSelectDeckSequence(enabled) end
 
 ---手动洗切玩家player的卡组
 ---注：会重置洗卡检测的状态
