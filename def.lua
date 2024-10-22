@@ -1558,12 +1558,13 @@ function Card.RemoveCounter(c,player,countertype,count,reason) end
 ---@param countertype integer
 function Card.GetCounter(c,countertype) end
 
----允许c[在位置location]放置那个需要“可以放置”才能放置的指示物countertype
----location的默认值与c的种类有关，灵摆怪兽需要指定能否在怪兽区域或灵摆区域放置指示物
+---允许c[在位置location，满足条件condition]放置那个需要“可以放置”才能放置的指示物countertype
+---（location的默认值与c的种类有关，灵摆怪兽需要指定能否在怪兽区域或灵摆区域放置指示物）
 ---@param c Card
 ---@param countertype integer
 ---@param location? integer
-function Card.EnableCounterPermit(c,countertype,location) end
+---@param condition? function
+function Card.EnableCounterPermit(c,countertype,location,condition) end
 
 ---设定c放置countertype类型指示物的上限
 ---@param c Card
