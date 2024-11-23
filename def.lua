@@ -779,11 +779,23 @@ function Card.IsStatus(c,status) end
 ---@param c Card
 function Card.IsNotTuner(c) end
 
----检查c是否是调整怪兽。
+---检查c是否为调整怪兽。
 ---除了检查TYPE_TUNER以外，还会检查其身上所有能让其变为调整怪兽的效果。
 ---@return boolean
 ---@param c Card
 function Card.IsTuner(c) end
+
+---检查c是否为记载满足过滤条件filter效果的卡
+---@return boolean
+---@param c Card
+---@param filter function filter(Effect)
+function Card.IsOriginalEffectProperty(c,filter) end
+
+---检查c是否为持有满足过滤条件filter效果的卡
+---@return boolean
+---@param c Card
+---@param filter function filter(Effect)
+function Card.IsEffectProperty(c,filter) end
 
 ---给c设置或者取消状态码
 ---除非妳清楚的了解每个状态码的含意，否则不要轻易使用此函数
