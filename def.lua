@@ -3637,6 +3637,11 @@ function Effect.GetLabelObject(e) end
 ---@param e Effect
 function Effect.GetCategory(e) end
 
+---返回Range属性
+---@return integer
+---@param e Effect
+function Effect.GetRange(e) end
+
 ---返回Owner属性
 ---@return Card
 ---@param e Effect
@@ -3713,6 +3718,12 @@ function Effect.IsHasCategory(e,cate) end
 ---@param e Effect
 ---@param type integer
 function Effect.IsHasType(e,type) end
+
+---检查效果是否含有区域range
+---@return boolean
+---@param e Effect
+---@param range integer
+function Effect.IsHasRange(e,range) end
 
 ---检查效果e能否由player发动
 ---neglect_loc=true 为不检测发动位置(手卡)， neglect_target=true 为不检测对象要求
