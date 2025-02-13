@@ -774,16 +774,18 @@ function Card.IsSummonPlayer(c,player) end
 ---@param status integer
 function Card.IsStatus(c,status) end
 
----检查c是否可以当成非调整来使用
+---检查c是否可以当成scard的非调整来使用
 ---@return boolean
 ---@param c Card
-function Card.IsNotTuner(c) end
+---@param scard Card
+function Card.IsNotTuner(c,scard) end
 
----检查c是否为调整怪兽。
+---检查c是否为scard的调整怪兽。
 ---除了检查TYPE_TUNER以外，还会检查其身上所有能让其变为调整怪兽的效果。
 ---@return boolean
 ---@param c Card
-function Card.IsTuner(c) end
+---@param scard Card
+function Card.IsTuner(c,scard) end
 
 ---检查c是否为记载满足过滤条件filter效果的卡
 ---@return boolean
