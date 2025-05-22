@@ -2462,6 +2462,17 @@ function Duel.GetLocationCount(player,location,use_player,reason,zone) end
 ---@param zone? integer default: 0xff
 function Duel.GetMZoneCount(player,targets,use_player,reason,zone) end
 
+---返回玩家player场上[targets 离开后]可用的[区域 zone 里的]魔陷区数量（不含场地区域）
+---##第三个第四个额外参数与凯撒斗技场等限制格子的效果有关
+---@return integer
+---@return integer zone
+---@param player integer
+---@param targets? Group|Card
+---@param use_player? integer
+---@param reason? integer
+---@param zone? integer default: 0xff
+function Duel.GetSZoneCount(player,targets,use_player,reason,zone) end
+
 ---返回玩家player场上[假如因玩家 reason_player 的原因让 targets 离场后，把卡片 sc 在 zone 区域特殊召唤]可用的 能让额外卡组的怪兽 出场的空格数
 ---@return integer
 ---@param player integer
