@@ -3,6 +3,9 @@
 ---@class Card
 ---@field discard_effect Effect
 ---@field star_knight_summon_effect Effect
+---@field Dragon_Ruler_handes_effect Effect
+---@field killer_tune_be_material_effect Effect
+---@field shadoll_flip_effect Effect
 Card = {}
 
 ---@class Duel
@@ -24,6 +27,12 @@ Debug = {}
 ---@param c Card
 ---@param tp integer
 function Card.mat_filter(c,tp) end
+
+---仪式怪兽的解放过滤条件
+---@return boolean
+---@param g Group
+---@param tp integer
+function Card.mat_group_check(g,tp) end
 
 ---素材检查（烙印融合）
 ---@param tp integer
