@@ -2164,7 +2164,8 @@ function Duel.ConfirmExtratop(player,count) end
 ---给玩家player确认targets
 ---@param player integer
 ---@param targets Card|Group
-function Duel.ConfirmCards(player,targets) end
+---@param skip_panel? boolean default: false
+function Duel.ConfirmCards(player,targets,skip_panel) end
 
 ---让玩家sort_player对玩家target_player的卡组最上方count张卡进行排序，最先选的卡在最上面，然后下面是第二张选择的卡，以此类推
 ---最多只能排序16张卡
