@@ -615,8 +615,10 @@ function Card.GetRealFieldID(c) end
 ---检查c是否在规则上当做code使用
 ---@return boolean
 ---@param c Card
----@param code integer
-function Card.IsOriginalCodeRule(c,code) end
+---@param code1 integer
+---@param code2? integer
+---@param ...? integer
+function Card.IsOriginalCodeRule(c,code1,code2,...) end
 
 ---检查c的卡号是否是 code1[, 或者为 code2...]
 ---@return boolean
@@ -698,9 +700,9 @@ function Card.IsAttack(c,atk1,atk2,...) end
 ---@return boolean
 ---@param c Card
 ---@param def integer
----@param atk2? integer
+---@param def2? integer
 ---@param ...? integer
-function Card.IsDefense(c,def,atk2,...) end
+function Card.IsDefense(c,def,def2,...) end
 
 ---检查c是否属于种族race
 ---@return boolean
@@ -1240,7 +1242,9 @@ function Card.IsSpecialSummonable(c,sum_type) end
 ---@param c Card
 ---@param tuner Card|nil
 ---@param mg? Group
-function Card.IsSynchroSummonable(c,tuner,mg) end
+---@param min? integer default: 0
+---@param max? integer default: 0
+function Card.IsSynchroSummonable(c,tuner,mg,min,max) end
 
 ---检查是否可以在场上的卡[或mg][中选出 min-max 个XYZ素材]对c进行XYZ召唤手续
 ---如果mg为nil，此函数与 c:IsSpecialSummonable(SUMMON_TYPE_XYZ)作用相同
@@ -1256,9 +1260,10 @@ function Card.IsXyzSummonable(c,mg,min,max) end
 ---@return boolean
 ---@param c Card
 ---@param mg Group|nil
+---@param lcard? Card|nil
 ---@param min? integer default: 0
 ---@param max? integer default: 0
-function Card.IsLinkSummonable(c,mg,min,max) end
+function Card.IsLinkSummonable(c,mg,lcard,min,max) end
 
 ---检查c是否可以进行通常召唤（不包含通常召唤的set)，ignore_count=true则不检查召唤次数限制
 ---e~=nil则检查c是否可以以效果e进行通常召唤，min表示至少需要的祭品数（用于区分妥协召唤与上级召唤）,zone 表示必须要召唤到的区域
@@ -1305,7 +1310,8 @@ function Card.IsCanBeSpecialSummoned(c,e,sumtype,sumplayer,nocheck,nolimit,sumpo
 ---##以下几个函数类似
 ---@return boolean
 ---@param c Card
-function Card.IsAbleToHand(c) end
+---@param player? integer default: reason player
+function Card.IsAbleToHand(c,player) end
 
 ---检查c是否可以送去卡组
 ---@return boolean
@@ -1362,7 +1368,8 @@ function Card.IsAbleToGraveAsCost(c) end
 ---检查c是否可以作为cost除外
 ---@return boolean
 ---@param c Card
-function Card.IsAbleToRemoveAsCost(c) end
+---@param pos? integer default: POS_FACEUP
+function Card.IsAbleToRemoveAsCost(c,pos) end
 
 ---检查c是否可以被以原因reason解放（非上级召唤用）
 ---@return boolean
@@ -1601,6 +1608,14 @@ function Card.SetCounterLimit(c,countertype,count) end
 ---@param c Card
 function Card.IsCanChangePosition(c) end
 
+---检查c是否可以放置到指定玩家的场上区域
+---若toplayer不是0或1，或c处于禁止状态，或会违反唯一性限制，则返回false
+---@return boolean
+---@param c Card
+---@param toplayer? integer default: reason player
+---@param tolocation? integer default: LOCATION_SZONE
+function Card.IsCanBePlacedOnField(c,toplayer,tolocation) end
+
 ---检查c是否可以转成里侧表示
 ---@return boolean
 ---@param c Card
@@ -1640,7 +1655,8 @@ function Card.IsCanOverlay(c,player) end
 ---@return boolean
 ---@param c Card
 ---@param fc? Card
-function Card.IsCanBeFusionMaterial(c,fc) end
+---@param summon_type? integer default: SUMMON_TYPE_FUSION
+function Card.IsCanBeFusionMaterial(c,fc,summon_type) end
 
 ---检查c是否可以成为[以 tuner 为调整的同调怪兽sc的]同调素材
 ---@return boolean
@@ -2902,7 +2918,8 @@ function Duel.SetSynchroMaterial(g) end
 ---获取玩家可以作为同调素材的卡片组
 ---@return Group
 ---@param player integer
-function Duel.GetSynchroMaterial(player) end
+---@param facedown? boolean default: false
+function Duel.GetSynchroMaterial(player,facedown) end
 
 ---让玩家player从场上[或mg中]选择用于同调c需要的[必须包含smat在内（如果有mg~=nil则忽略此参数）]满足条件的一组素材
 ---f1是 1 只需要满足的过滤条件，f2是 min-max 只需要满足的过滤条件
@@ -3385,7 +3402,8 @@ function Duel.IsPlayerCanRelease(player,c,reason) end
 ---@return boolean
 ---@param player integer
 ---@param c? Card
-function Duel.IsPlayerCanRemove(player,c) end
+---@param reason? integer default: REASON_EFFECT
+function Duel.IsPlayerCanRemove(player,c,reason) end
 
 ---检查玩家是否能把c送去手卡
 ---@return boolean
@@ -3797,9 +3815,13 @@ function Effect.UseCountLimit(e,p,count,oath_only) end
 
 ---@class Group
 ---@operator add(Group|Card): Group
+---@operator bor(Group|Card): Group
 
 ---@class Group
 ---@operator sub(Group|Card): Group
+---@operator band(Group): Group
+---@operator bxor(Group): Group
+---@operator len: integer
 
 ---新建一个空的卡片组
 ---@return Group
