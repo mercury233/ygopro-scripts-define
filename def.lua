@@ -1936,8 +1936,8 @@ function Duel.SendtoDeck(targets,player,seq,reason,reason_player,send_activating
 function Duel.SendtoExtraP(targets,player,reason) end
 
 ---此函数返回之前一次卡片操作实际操作的卡片组。包括
----Duel.Destroy, Duel.Remove, Duel.SendtoGrave, 
----Duel.SendtoHand, Duel.SendtoDeck, Duel.SendtoExtraP, Duel.Release, 
+---Duel.Destroy, Duel.Remove, Duel.SendtoGrave,
+---Duel.SendtoHand, Duel.SendtoDeck, Duel.SendtoExtraP, Duel.Release,
 ---Duel.ChangePosition, Duel.SpecialSummon, Duel.DiscardDeck
 ---@return Group
 function Duel.GetOperatedGroup() end
@@ -2188,7 +2188,7 @@ function Duel.SortDecktop(sort_player,target_player,count) end
 ---@return boolean
 ---@return Group 可能为空
 ---@return integer 可能为空
----@return integer 可能为空 
+---@return integer 可能为空
 ---@return Effect 可能为空
 ---@return integer 可能为空
 ---@return integer 可能为空
@@ -3898,8 +3898,8 @@ function Group.FilterSelect(g,player,f,min,max,ex,...) end
 ---@param ex Card|Group|nil
 function Group.Select(g,player,min,max,ex) end
 
----让玩家 player 从 cg 中选择 1 张卡放入 sg ，并返回选的卡。  
----btok 表示是否可以点击完成选择的按钮， cancelable 表示是否可以取消整个选择返回 nil， 
+---让玩家 player 从 cg 中选择 1 张卡放入 sg ，并返回选的卡。
+---btok 表示是否可以点击完成选择的按钮， cancelable 表示是否可以取消整个选择返回 nil，
 ---minc 和 maxc 是客户端的文字缓冲提示，表示需要选择 minc-maxc 张卡，但是这个只是影响视觉效果，并不代表必须要选择那个数量
 ---@return Card|nil
 ---@param cg Group
