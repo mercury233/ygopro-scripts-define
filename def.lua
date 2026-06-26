@@ -82,6 +82,12 @@ function Card.ultimate_fusion_check(tp,sg,fc) end
 ---@param tc Card
 function Card.zw_equip_monster(c,tp,tc) end
 
+---解放检查（金属化·强化反射装甲）
+---@param ft integer
+---@param lv integer
+---@param race integer
+---@param att integer
+function Card.Metallization_material(ft,lv,race,att) end
 
 ---返回c的当前卡号（可能因为效果改变）
 ---@return integer
