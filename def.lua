@@ -2543,7 +2543,7 @@ function Duel.GetLinkedZone(player) end
 
 ---返回玩家player的场上位于location序号为seq的卡，常用于获得场地区域·灵摆区域的卡
 ---注：召唤·反转召唤·特殊召唤 之际 的卡无法获取
----@return Card
+---@return Card|nil
 ---@param player integer
 ---@param location integer
 ---@param seq integer
@@ -2726,7 +2726,7 @@ function Duel.GetMatchingGroupCount(f,player,s,o,ex,...) end
 ---过滤函数，返回以player来看的指定位置满足过滤条件f并且不等于ex的第一张卡,没有则返回nil
 ---s代表以player来看的自己的位置，o代表以player来看的对方的位置
 ---第6个参数开始为额外参数
----@return Card
+---@return Card|nil
 ---@param f function|nil
 ---@param player integer
 ---@param s integer
@@ -2932,7 +2932,7 @@ function Duel.GetSynchroMaterial(player,facedown) end
 ---让玩家player从场上[或mg中]选择用于同调c需要的[必须包含smat在内（如果有mg~=nil则忽略此参数）]满足条件的一组素材
 ---f1是 1 只需要满足的过滤条件，f2是 min-max 只需要满足的过滤条件
 ---f1,f2 之中，至少有一种为调整的条件
----@return Group
+---@return Group|nil
 ---@param player integer
 ---@param c Card
 ---@param f1 function|nil
@@ -2958,7 +2958,7 @@ function Duel.CheckSynchroMaterial(c,f1,f2,min,max,smat,mg) end
 
 ---让玩家从场上[或mg中]选择用于同调c需要的满足条件的以tuner作为调整的min-max张卡的一组素材
 ---f1是 1 只需要满足的过滤条件，f2是 min-max 只需要满足的过滤条件
----@return Group
+---@return Group|nil
 ---@param player integer
 ---@param c Card
 ---@param tuner Card
@@ -3086,7 +3086,7 @@ function Duel.ClearOperationInfo(chainc) end
 function Duel.CheckXyzMaterial(c,f,lv,min,max,mg) end
 
 ---让玩家player为XYZ怪兽c从场上[或mg中]选择XYZ用等级为lv的min-max个满足条件f的叠放素材
----@return Group
+---@return Group|nil
 ---@param player integer
 ---@param c Card
 ---@param f function|nil
@@ -4081,7 +4081,7 @@ function Group.Equal(g1,g2) end
 function Group.IsContains(g,c) end
 
 ---过滤函数，返回g中满足筛选条件f的第一张卡，若没有则返回nil，从第3个参数开始为额外参数
----@return Card
+---@return Card|nil
 ---@param g Group
 ---@param f function
 ---@param ... any
